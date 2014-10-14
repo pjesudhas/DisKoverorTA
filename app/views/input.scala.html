@@ -1,0 +1,13 @@
+@(productForm: Form[model.DataContent])
+@import helper._
+@import helper.twitterBootstrap._
+@main("Diskoveror Text Analytics") {
+    <h1>Diskoveror Text Analytics</h1>
+    @helper.form(action = routes.InputData.getTaggedOutput()) {
+        <fieldset>
+            <!-- <legend>DataContent (@productForm("name").valueOr("New"))</legend> -->
+            @helper.textarea(productForm("rawInput"), '_label ->"Enter Text")
+        </fieldset>
+        <input type="submit" class="btn btn-primary" value="Process Data">
+    }
+}
