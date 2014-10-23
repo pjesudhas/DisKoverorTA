@@ -4,12 +4,16 @@ package controllers;
  * Created by praveen on 14/10/14.
  */
 
+import com.diskoverorta.entities.*;
+import edu.stanford.nlp.ling.CoreLabel;
 import model.DataContent;
 import play.*;
 import play.data.Form;
 import play.mvc.*;
 
 import views.html.*;
+
+import java.util.List;
 
 public class InputData extends Controller
 {
@@ -24,8 +28,7 @@ public class InputData extends Controller
     {
         Form<DataContent>boundForm = productForm.bindFromRequest();
         DataContent product = boundForm.get();
-
-
-        return ok(String.format("Example : %s", product.rawInput));
+        EntityManager ex = new EntityManager();
+        return ok(String.format("Example : %s", ex.getALLDocumentEntitiesINJSON(product.rawInput)));
     }
 }
