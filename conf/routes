@@ -3,11 +3,11 @@
 # ~~~~
 
 # Home page
-GET        /                    controllers.Application.index()
+#GET        /                    controllers.Application.index()
 
-GET        /hello               controllers.Application.hello(name:String)
+#GET        /hello               controllers.Application.hello(name:String)
 
-GET       /input               controllers.InputData.getInput()
+GET       /             controllers.InputData.getInput()
 
 POST       /output                controllers.InputData.getTaggedOutput()
 # Map static resources from the /public folder to the /assets URL path
