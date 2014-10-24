@@ -2,12 +2,63 @@
 @import helper._
 @import helper.twitterBootstrap._
 @main("Diskoveror Text Analytics") {
-    <h1>Diskoveror Text Analytics</h1>
+<body style="background-image: url(http://www.widewallpapers.net/mod/text/1920x1080/text-wide-wallpaper-1920x1080-044.jpg)">
+        <style>
+        h2{
+        width: 1000px;
+        padding: 25px;
+        border: 10px ;
+        background-color: orange;opacity: 0.8;
+        margin: 30px 30px 30px 110px;
+        }
+            h3{
+            font-family: cursive;
+
+            width: 330px;
+            height: 50px;
+            padding: 15px;
+            border: 5px ;
+            margin: 30px 30px 30px 110px;
+            background-color: gold;opacity: 0.8;
+            }
+
+        p{
+        text-indent: 50px;
+        font-family: cursive;
+        font-size: 11pt;
+        width: 330px;
+        padding: 12px;
+        border: 10px ;
+        margin: 0px 30px 30px 110px;
+        background-color: red;opacity: 0.8;
+        float: left;
+        }
+
+        fieldset{
+        margin-left: 500px;
+        margin-top: 30px;
+        color: #000000;
+
+        }
+        input{
+        margin-left: 320px;
+        margin-top: 10px;
+        }
+
+        </style>
+
+        <h2 style="color:#000000"><center>Diskoveror Text Analytics</center></h2>
+        <h3 style="color:#000000"> About</h3>
+
+        <p style="color: snow" align="justify"> The DisKoveror Text analytics engine(DTAE) is a software product developed by Serendio for extracting information such as Sentiment, Text categories, named entities etc from unstructured text. DTAE is useful in extracting information from Twitter streams, product reviews, emails, webpages and any other source of unstructured information.
+            Potential applications for DTAE includes but are not limited to Legal document analysis, Social media analysis, Insurance fraud detection, Bio entity detection, Movie popularity detection etc.
+        </p>
+    
     @helper.form(action = routes.InputData.getTaggedOutput()) {
         <fieldset>
             <!-- <legend>DataContent (@productForm("name").valueOr("New"))</legend> -->
-            @helper.textarea(productForm("rawInput"), '_label ->"Enter Text")
+            @helper.textarea(productForm("rawInput"), '_label ->"Enter Text", 'rows -> 12, 'cols -> 50)
         </fieldset>
-        <input type="submit" class="btn btn-primary" value="Process Data">
+        <input type="submit" class="btn btn-primary" value="Process Data" style="background-color: dodgerblue;color:#ffffff; border-color: dodgerblue">
     }
 }
