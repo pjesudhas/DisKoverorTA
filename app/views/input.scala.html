@@ -1,0 +1,99 @@
+@(productForm: Form[model.DataContent])
+@import helper._
+@import helper.twitterBootstrap._
+@main("Diskoveror Text Analytics") {
+    <head>
+        <nav class="navbar navbar-inverse" role="navigation">
+            <h1 style="color : ghostwhite" align="center">Diskoverorta Text Analytics</h1>
+
+        </nav>
+    </head>
+
+    <div class="bs-example">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="#" onclick="javascript:jsonop();">NER</a></li>
+            <li><a href="@routes.InputData.textcat1()">Text Categories</a></li>
+            <li><a href="@routes.InputData.sentiment()">Sentiment Analytics</a></li>
+        </ul>
+    </div>
+    <body style = "background-color: #f5f5f5">
+        <style>
+        h2{
+        width: 1287px;
+        padding: 15px;
+        border: 10px ;
+        background-color: grey;
+        margin: 10px 30px 30px 0px;
+        }
+
+        h3{
+        font-family: cursive;
+
+        width: 330px;
+        height: 50px;
+        padding: 15px;
+        border: 5px ;
+        margin: 30px 30px 30px 110px;
+        background-color: #000000;
+
+        }
+        h6{
+        width: 1287px;
+        padding: 7px;
+        border: 10px ;
+        background-color: grey;
+        margin: 110px 30px 30px 0px;
+        text-align: center;
+
+        }
+
+        p{
+        text-indent: 50px;
+        font-family: cursive;
+        font-size: 11pt;
+        width: 330px;
+        padding: 12px;
+        border: 10px ;
+        margin: 0px 30px 30px 110px;
+        background-color: lightgray;opacity: 0.8;
+        float: left;
+        }
+
+        fieldset{
+        margin-left: 500px;
+        margin-top: 30px;
+        color: #000000;
+
+        }
+        input{
+        margin-left: 320px;
+        margin-top: 10px;
+        }
+        button{
+        margin-left: 340px;
+        margin-top: 10px;
+        }
+
+        </style>
+
+
+        <h3 style="color:ghostwhite"> About</h3>
+
+        <p style="color: #000000" align="justify"> The DisKoveror Text analytics engine(DTAE) is a software product developed by Serendio for extracting information such as Sentiment, Text categories, named entities etc from unstructured text. DTAE is useful in extracting information from Twitter streams, product reviews, emails, webpages and any other source of unstructured information.
+            Potential applications for DTAE includes but are not limited to Legal document analysis, Social media analysis, Insurance fraud detection, Bio entity detection, Movie popularity detection etc.
+        </p>
+
+        @helper.form(action = routes.InputData.getTaggedOutput()) {
+            <fieldset>
+
+                    <!-- <legend>DataContent (@productForm("name").valueOr("New"))</legend> -->
+                @helper.textarea(productForm("rawInput"), '_label ->"Enter Text", 'rows -> 12, 'cols -> 50)
+            </fieldset>
+          <input type="submit" class="btn btn-primary" value="Process Data" style="background-color: dodgerblue;color:#ffffff; border-color: dodgerblue">
+
+}
+        <a href="op1"> <button type="submit" class="btn btn-primary" value="practising" style="background-color: dodgerblue;color:#ffffff; border-color: dodgerblue">practising </button></a>
+        <h6>copy rights reserved &copy; serendio-DTAE 2014</h6>
+    </body>
+}
