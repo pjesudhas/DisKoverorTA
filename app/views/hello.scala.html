@@ -1,11 +1,33 @@
 @(name:String)
+@import scala.util.parsing.json._
+@import com.google.gson.Gson
+
+
 <!doctype html>
 <html>
     <head>
         <meta charset="UTF-8">
         <title>Hello</title>
+        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
     </head>
+    <script>
+    	$(document).ready(function(){
+
+    	var series = @{Html(new Gson().toJson(name))};
+    		//console.log(JSON.stringify([ { "sentence": "The DisKoveror Text analytics engine -LRB- DTAE -RRB- is a software product developed by Serendio for extracting information .", "currency": [], "date": [], "location": [], "organization": [], "percent": [], "person": [ "Serendio" ], "time": [] } ]));
+    	
+    		alert(series);
+    		
+    		
+    	});
+    </script>
     <body>
-        <h1>Hello <em>@name</em></h1>
+    	
+        <div id="a">
+        	@for(person <- DataList.get(i).personList){
+				   <li> @person </li>
+				}
+        </div>
+		     
     </body>
 </html>
