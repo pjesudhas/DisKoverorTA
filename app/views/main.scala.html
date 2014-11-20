@@ -31,9 +31,99 @@
     				padding-left: 14px;
 			}
 		</style>
+		 <script>
+			$(function(){
+							$("#l1cover").toggle();
+							$("#l2cover").toggle();
+							$("#l3cover").toggle();
+							$("#l4cover").toggle();
+							$("#l5cover").toggle();
+							$("#l6cover").toggle();
+							$("#l7cover").toggle();
+							$("#l8cover").toggle();
+							
+							$("#m1").click(function () {
+								$("#l1cover").toggle(500);
+								$("#m1").toggleClass("imagechange");
+							});
+							$("#m2").click(function () {
+								$("#l2cover").toggle(500);
+								$("#m2").toggleClass("imagechange");
+							});
+							$("#m3").click(function () {
+								$("#l3cover").toggle(500);
+								$("#m3").toggleClass("imagechange");
+							});
+		
+							$("#m4").click(function () {
+								$("#l4cover").toggle(500);
+								$("#m4").toggleClass("imagechange");
+							});
+							$("#m5").click(function () {
+								$("#l5cover").toggle(500);
+								$("#m5").toggleClass("imagechange");
+							});
+							$("#m6").click(function () {
+								$("#l6cover").toggle(500);
+								$("#m6").toggleClass("imagechange");
+							});
+							$("#m7").click(function () {
+								$("#l7cover").toggle(500);
+								$("#m7").toggleClass("imagechange");
+							});
+							$("#m8").click(function () {
+								$("#l8cover").toggle(500);
+								$("#m8").toggleClass("imagechange");
+							});
+					
+});
+</script>
     </head>
     <body>
-        <!-- <link href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")" rel="stylesheet" media="screen"> -->
+    
+   
+    
+   <div class="topbar">
+            <div class="fill">
+                <div class="container" >
+                    <div class="brand"><img src="@routes.Assets.at("images/logo.png")" ></img>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Diskoverorta Text Analytics</div>
+                </div>
+            </div>
+  	</div>
+  	
+  	<div class="container">    
+     	<br/><br/><br/><br/><br/>
+     <div class="row">
+
+		<div class="span12">
+   			 <div class="bs-example">
+        	<ul class="pills">
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="#" onclick="javascript:jsonop();">NER</a></li>
+            <li><a href="#">Text Categories</a></li>
+            <li><a href="#">Sentiment Analytics</a></li>
+        	</ul>
+        	
+    		</div>
+    		
+    		
+    	</div>
+    </div>
+    
+     
+     <div class="container" id="contentbody">    
+     	<br/>
+     	<div class="row" style="height:400px">
         @content
+        </div>
+     </div>   
+  	<br/>
+ 	<div class="footer">
+      		 
+       			<p style="color:white"><i>copy rights reserved &copy; serendio-DTAE 2014</i></p>
+       			
+      </div>
     </body>
 </html>

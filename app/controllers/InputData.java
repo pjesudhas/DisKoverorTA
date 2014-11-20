@@ -5,15 +5,19 @@ package controllers;
  */
 
 import com.diskoverorta.entities.*;
+
 import edu.stanford.nlp.ling.CoreLabel;
 import model.DataContent;
 import play.*;
-import play.data.Form;
+import play.data.*;
 import play.mvc.*;
-
 import views.html.*;
+import play.mvc.Result;
+
 
 import java.util.List;
+
+
 
 public class InputData extends Controller
 {
@@ -29,6 +33,17 @@ public class InputData extends Controller
         Form<DataContent>boundForm = productForm.bindFromRequest();
         DataContent product = boundForm.get();
         EntityManager ex = new EntityManager();
-        return ok(String.format("Example : %s", ex.getALLDocumentEntitiesINJSON(product.rawInput)));
+        String str=ex.getALLDocumentEntitiesINJSON(product.rawInput);
+        
+        //return ok(String.format("Example : %s", ex.getALLDocumentEntitiesINJSON(product.rawInput)));
+        
+        //JSON.parse(str);
+        
+       //str=str.replaceAll("\"", "");
+        
+        return ok(hello.render(str,product.rawInput));
+ 
+         
+      
     }
 }

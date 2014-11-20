@@ -3,7 +3,7 @@
 @import helper.twitterBootstrap._
 @main("Diskoveror Text Analytics") {
  
-    
+    <!--   
   <div class="topbar">
             <div class="fill">
                 <div class="container">
@@ -14,7 +14,7 @@
             </div>
   </div>
   
-  
+
   <div class="container">    
      	<br/><br/><br/><br/><br/>
      <div class="row">
@@ -33,7 +33,7 @@
     		
     	</div>
     </div>
-
+ -->
      <div class="row">
      	
      	<div class="span5">
@@ -52,7 +52,7 @@
 			
     		<h4>Enter input text to be analyzed</h4>
         	@helper.form(action = routes.InputData.getTaggedOutput()) {
-            <fieldset >
+            <fieldset>
 
                     <!-- <legend>DataContent (@productForm("name").valueOr("New"))</legend> -->
                	 @helper.textarea(productForm("rawInput"), '_label ->"")
@@ -86,10 +86,5 @@
       
     
   </div>
-  <br/>
- 	<div class="footer">
-      		 
-       			<h6>copy rights reserved &copy; serendio-DTAE 2014</h6>
-       			
-      </div>
+ 
 }

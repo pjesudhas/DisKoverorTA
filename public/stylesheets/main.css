@@ -120,8 +120,16 @@ ul li{
 .footer{
 		
 		text-color:black;
-		
-		background-color: gray;
+		padding-top:5px;
+		background-color: black;
 		text-align: center;
+		height:25px;
+}
+.contentbody{
+		
+		height:800px;
 	
+}
+fieldset{
+	margin-bottom:0px;
 }

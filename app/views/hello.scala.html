@@ -1,33 +1,119 @@
-@(name:String)
+@(name:String,input:String)
 @import scala.util.parsing.json._
 @import com.google.gson.Gson
 
-
-<!doctype html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Hello</title>
-        <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
-    </head>
+    
+ @main(title = "Diskoverora Text Analyzer") {
+ 
     <script>
     	$(document).ready(function(){
 
     	var series = @{Html(new Gson().toJson(name))};
-    		//console.log(JSON.stringify([ { "sentence": "The DisKoveror Text analytics engine -LRB- DTAE -RRB- is a software product developed by Serendio for extracting information .", "currency": [], "date": [], "location": [], "organization": [], "percent": [], "person": [ "Serendio" ], "time": [] } ]));
-    	
-    		alert(series);
     		
+    	$.each(JSON.parse(series), function(idx, obj) {
+    	
+    		//alert(obj.sentence);
+    		
+    		
+    		$("#sentence").append($('<li>').append(obj.sentence));
+    		$("#person").append($('<li>').append(obj.person));
+    		$("#organization").append($('<li>').append(obj.organization));
+    		$("#location").append($('<li>').append(obj.location));
+    		$("#currency").append($('<li>').append(obj.currency));
+    		$("#percent").append($('<li>').append(obj.percent));
+    		$("#date").append($('<li>').append(obj.date));
+    		$("#time").append($('<li>').append(obj.time));
+    		
+    		
+    		//alert(obj.person);
+    	});
     		
     	});
     </script>
-    <body>
+
+    
     	
-        <div id="a">
-        	@for(person <- DataList.get(i).personList){
-				   <li> @person </li>
-				}
-        </div>
-		     
-    </body>
-</html>
+    	
+       
+
+<div class="span4">	
+		<div class="box">
+			<p class="headingPara">Entities</p>
+			<ul id="tab">
+				<li id="m1" class="header">Sentence</li>
+				<li>
+					<div id="l1cover">
+						<ul id="sentence">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m2" class="header">Person</li>
+				<li>
+					<div id="l2cover">
+						<ul id="person">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m3" class="header">Organization</li>
+				<li>
+					<div id="l3cover">
+						<ul id="organization">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m4" class="header">Location</li>
+				<li>
+					<div id="l4cover">
+						<ul id="location">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m5" class="header">Currency</li>
+				<li>
+					<div id="l5cover">
+						<ul id="currency">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m6" class="header">Percent</li>
+				<li>
+					<div id="l6cover">
+						<ul id="percent">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m7" class="header">Date</li>
+				<li>
+					<div id="l7cover">
+						<ul id="date">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m8" class="header">Time</li>
+				<li>
+					<div id="l8cover">
+						<ul id="time">
+									
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>	
+</div>
+
+<div class="span8">
+		<p class="inputdisplay">
+			
+			@input
+		</p>
+		<a class="btn primary" href="@routes.InputData.getInput">Try another text</a><br/><br/>
+</div>
+		
+}
