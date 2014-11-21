@@ -7,8 +7,10 @@
 
 #GET        /hello               controllers.Application.hello(name:String)
 
-GET       /             controllers.InputData.getInput()
+GET         /                    controllers.InputData.getInput()
 
-POST       /output                controllers.InputData.getTaggedOutput()
+GET         /api                 controllers.InputData.getAPIInput()
+
+POST        /output              controllers.InputData.getTaggedOutput()
 # Map static resources from the /public folder to the /assets URL path
-GET        /assets/*file        controllers.Assets.at(path="/public", file)
+GET         /assets/*file        controllers.Assets.at(path="/public", file)
