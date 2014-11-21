@@ -1,11 +1,119 @@
-@(name:String)
-<!doctype html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Hello</title>
-    </head>
-    <body>
-        <h1>Hello <em>@name</em></h1>
-    </body>
-</html>
+@(name:String,input:String)
+@import scala.util.parsing.json._
+@import com.google.gson.Gson
+
+    
+ @main(title = "Diskoverora Text Analyzer") {
+ 
+    <script>
+    	$(document).ready(function(){
+
+    	var series = @{Html(new Gson().toJson(name))};
+    		
+    	$.each(JSON.parse(series), function(idx, obj) {
+    	
+    		//alert(obj.sentence);
+    		
+    		
+    		$("#sentence").append($('<li>').append(obj.sentence));
+    		$("#person").append($('<li>').append(obj.person));
+    		$("#organization").append($('<li>').append(obj.organization));
+    		$("#location").append($('<li>').append(obj.location));
+    		$("#currency").append($('<li>').append(obj.currency));
+    		$("#percent").append($('<li>').append(obj.percent));
+    		$("#date").append($('<li>').append(obj.date));
+    		$("#time").append($('<li>').append(obj.time));
+    		
+    		
+    		//alert(obj.person);
+    	});
+    		
+    	});
+    </script>
+
+    
+    	
+    	
+       
+
+<div class="span4">	
+		<div class="box">
+			<p class="headingPara">Entities</p>
+			<ul id="tab">
+				<li id="m1" class="header">Sentence</li>
+				<li>
+					<div id="l1cover">
+						<ul id="sentence">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m2" class="header">Person</li>
+				<li>
+					<div id="l2cover">
+						<ul id="person">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m3" class="header">Organization</li>
+				<li>
+					<div id="l3cover">
+						<ul id="organization">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m4" class="header">Location</li>
+				<li>
+					<div id="l4cover">
+						<ul id="location">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m5" class="header">Currency</li>
+				<li>
+					<div id="l5cover">
+						<ul id="currency">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m6" class="header">Percent</li>
+				<li>
+					<div id="l6cover">
+						<ul id="percent">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m7" class="header">Date</li>
+				<li>
+					<div id="l7cover">
+						<ul id="date">
+									
+						</ul>
+					</div>
+				</li>
+				<li id="m8" class="header">Time</li>
+				<li>
+					<div id="l8cover">
+						<ul id="time">
+									
+						</ul>
+					</div>
+				</li>
+			</ul>
+		</div>	
+</div>
+
+<div class="span8">
+		<p class="inputdisplay">
+			
+			@input
+		</p>
+		<a class="btn primary" href="@routes.InputData.getInput">Try another text</a><br/><br/>
+</div>
+		
+}

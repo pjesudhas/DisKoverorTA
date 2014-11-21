@@ -12,7 +12,7 @@ public class Application extends Controller {
         return ok("Hello world");
     }
     public static Result hello(String name) {
-        return ok(views.html.hello.render(name));
+        return ok(views.html.hello.render(name,name));
     }
 
 }
