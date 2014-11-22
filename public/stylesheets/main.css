@@ -70,10 +70,10 @@ body {
 .headingPara{
 	border : 0px solid black;
 	padding:10px;
-	background-color: blue;
+	background-color: #0FAAD6;
 	color:white;
 	
-	
+
 }
 #rawInput{
 	margin-left:-150px;
@@ -132,4 +132,43 @@ ul li{
 }
 fieldset{
 	margin-bottom:0px;
+}
+
+
+.rotate{
+		-webkit-transition:-webkit-transform 3s;
+		transition:transform 3s;
+       
+	}
+	
+.rotate:hover{
+		-webkit-transform: rotate(360deg) scale(.6);
+		transform: rotate(360deg) scale(.6);
+	}
+.personhighlight{
+	background-color: yellow;
+}
+
+.organizationhighlight{
+	background-color: #CEF7A2;
+}
+
+.locationhighlight{
+	background-color: #B7EDF2;
+}
+
+.currencyhighlight{
+	background-color: #F7A99F;
+}
+
+
+.percenthighlight{
+	background-color: #F8F6C5;
+}
+.datehighlight{
+	background-color: #E3B2F8;
+}
+
+.timehighlight{
+	background-color: #FCCB55;
 }
