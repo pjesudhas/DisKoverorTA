@@ -3,39 +3,10 @@
 @import helper.twitterBootstrap._
 @main("Diskoveror Text Analytics") {
  
-    <!--   
-  <div class="topbar">
-            <div class="fill">
-                <div class="container">
-                    <div class="brand"><img src="@routes.Assets.at("images/logo.png")" ></img>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    Diskoverorta Text Analytics</div>
-                </div>
-            </div>
-  </div>
-  
-
-  <div class="container">    
-     	<br/><br/><br/><br/><br/>
-     <div class="row">
-
-		<div class="span12">
-   			 <div class="bs-example">
-        	<ul class="pills">
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="#" onclick="javascript:jsonop();">NER</a></li>
-            <li><a href="#">Text Categories</a></li>
-            <li><a href="#">Sentiment Analytics</a></li>
-        	</ul>
-        	
-    		</div>
-    		
-    		
-    	</div>
-    </div>
- -->
-     <div class="row">
+   
+     <div class="row" >
      	
+     	<!-- 
      	<div class="span5">
      		
      		<div class="headingPara"><b>About</b></div>
@@ -47,10 +18,13 @@
         	<br/><br/>
         	</p>
 		</div>
-		<div class="span7">
+		
+		 -->
+		 
+		<div class="span11" style="padding-left:20px">
 	
 			
-    		<h4>Enter input text to be analyzed</h4>
+    		<h4>Test phase drive our system</h4>
         	@helper.form(action = routes.InputData.getTaggedOutput()) {
             <fieldset>
 
@@ -62,10 +36,16 @@
             	</fieldset>
             	
            
-          	<input type="submit" class="btn primary" value="Process Data" >
+          	<input type="submit" id="btnsubmit" class="btn primary" value="Process Data" ></input>
+          	
+          	
+          	
+          	<!--  
           	<a href="op1"> 
           	<input type="submit" class="btn primary" value="  Practising  " ></input>
 			</a>
+			-->
+			
 			}
 			
 		
@@ -77,7 +57,26 @@
         
        	</div>
        
- 
+ 		<div class="span5" >
+     		<br/><br/><br/>
+     		<div class="headingPara"><b>Domain</b></div>
+     		
+        	<p id="about"> 
+        	
+        		<input type="checkbox"><span style="padding-left:5px">General</span></checkbox><br/>
+        		<input type="checkbox"><span style="padding-left:5px">Life Science</span></checkbox>
+        	<br/><br/>
+        	
+        	<!--
+        	
+        	<div style="background-color:#2E85D2">
+        	<img id="b100" class="rotate" src="@routes.Assets.at("images/button2.png")" >Diskovrer</img>
+        	</div>
+        	
+        	  -->
+        	
+        	</p>
+		</div>
        
       </div>
       
@@ -86,5 +85,5 @@
       
     
   </div>
- 
+ <br/><br/><br/><br/><br/><br/>
 }

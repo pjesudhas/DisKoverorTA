@@ -6,16 +6,67 @@
  @main(title = "Diskoverora Text Analyzer") {
  
     <script>
+    
     	$(document).ready(function(){
 
     	var series = @{Html(new Gson().toJson(name))};
-    		
+    	var personcount=0;
+    	var organizationcount=0;
+    	var locationcount=0;
+    	var currencycount=0;
+    	var percentcount=0;
+    	var datecount=0;
+    	var timecount=0;
+    	
+    	var sentences='';
+    	
     	$.each(JSON.parse(series), function(idx, obj) {
     	
-    		//alert(obj.sentence);
     		
+    		sentences= sentences + obj.sentence;
+    		if(obj.person.length>0)
+    		{
+    			personcount=personcount+1;
+    			var re = new RegExp(obj.person,"g");
+    			sentences=sentences.replace(re,'<code class=personhighlight>'+ obj.person + '</code>');
+    		}
+    		if(obj.organization.length>0)
+    		{
+    			organizationcount=organizationcount+1;
+    			var re = new RegExp(obj.organization,"g");
+    			sentences=sentences.replace(re,'<code class=organizationhighlight>'+ obj.organization + '</code>');
+    		}
+    		if(obj.location.length>0)
+    		{
+    			locationcount=locationcount+1;
+    			var re = new RegExp(obj.location,"g");
+    			sentences=sentences.replace(re,'<code class=locationhighlight>'+ obj.location + '</code>');
+    		}
+    		if(obj.currency.length>0)
+    		{
+    			currencycount=currencycount+1;
+    			var re = new RegExp(obj.currency,"g");
+    			sentences=sentences.replace(re,'<code class=currencyhighlight>'+ obj.currency + '</code>');
+    		}
+    		if(obj.percent.length>0)
+    		{
+    			percentcount=percentcount+1;
+    			var re = new RegExp(obj.percent,"g");
+    			sentences=sentences.replace(re,'<code class=percenthighlight>'+ obj.percent + '</code>');
+    		}
+    		if(obj.date.length>0)
+    		{
+    			datecount=datecount+1;
+    			var re = new RegExp(obj.date,"g");
+    			sentences=sentences.replace(re,'<code class=datehighlight>'+ obj.date + '</code>');
+    		}
+    		if(obj.time.length>0)
+    		{	
+    			timecount=timecount+1;
+    			var re = new RegExp(obj.time,"g");
+    			sentences=sentences.replace(re,'<code class=timehighlight>'+ obj.time + '</code>');
+    		}
     		
-    		$("#sentence").append($('<li>').append(obj.sentence));
     		$("#person").append($('<li>').append(obj.person));
     		$("#organization").append($('<li>').append(obj.organization));
     		$("#location").append($('<li>').append(obj.location));
@@ -28,7 +79,23 @@
     		//alert(obj.person);
     	});
     		
+    		$("#m2").append( "<div style='background-color:yellow;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " + personcount + " ]</div>");
+    		$("#m3").append("<div style='background-color:#CEF7A2;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +organizationcount + " ]</div>");
+    		$("#m4").append("<div style='background-color:#B7EDF2;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +locationcount+ " ]</div>");
+    		$("#m5").append("<div style='background-color:#F8F6C5;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +currencycount+ " ]</div>");
+    		$("#m6").append("<div style='background-color:#F7A99F;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +percentcount+ " ]</div>");
+    		$("#m7").append("<div style='background-color:#E3B2F8;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +datecount+ " ]</div>");
+    		$("#m8").append("<div style='background-color:#FCCB55;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +timecount+ " ]</div>");
+    		//alert(sentences);
+    		
+    		//sentences=sentences.replace(/Bob/g,'<code>Bob</code>');
+    
+    		
+    		$("#userinput").html(sentences);	
     	});
+    	
+    	
+    	
     </script>
 
     
@@ -40,6 +107,7 @@
 		<div class="box">
 			<p class="headingPara">Entities</p>
 			<ul id="tab">
+			<!--  
 				<li id="m1" class="header">Sentence</li>
 				<li>
 					<div id="l1cover">
@@ -48,6 +116,8 @@
 						</ul>
 					</div>
 				</li>
+			-->
+			
 				<li id="m2" class="header">Person</li>
 				<li>
 					<div id="l2cover">
@@ -109,9 +179,8 @@
 </div>
 
 <div class="span8">
-		<p class="inputdisplay">
-			
-			@input
+		<p id="userinput" class="inputdisplay">
+	
 		</p>
 		<a class="btn primary" href="@routes.InputData.getInput">Try another text</a><br/><br/>
 </div>
