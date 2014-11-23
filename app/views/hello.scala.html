@@ -79,6 +79,7 @@
     		//alert(obj.person);
     	});
     		
+    	/*
     		$("#m2").append( "<div style='background-color:yellow;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " + personcount + " ]</div>");
     		$("#m3").append("<div style='background-color:#CEF7A2;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +organizationcount + " ]</div>");
     		$("#m4").append("<div style='background-color:#B7EDF2;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +locationcount+ " ]</div>");
@@ -86,6 +87,18 @@
     		$("#m6").append("<div style='background-color:#F7A99F;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +percentcount+ " ]</div>");
     		$("#m7").append("<div style='background-color:#E3B2F8;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +datecount+ " ]</div>");
     		$("#m8").append("<div style='background-color:#FCCB55;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +timecount+ " ]</div>");
+    		
+    	*/
+    	
+    	
+    	$("#m2").append("&nbsp;&nbsp;&nbsp;"+personcount);
+		$("#m3").append("&nbsp;&nbsp;&nbsp;"+organizationcount);
+		$("#m4").append("&nbsp;&nbsp;&nbsp;"+locationcount);
+		$("#m5").append("&nbsp;&nbsp;&nbsp;"+currencycount);
+		$("#m6").append("&nbsp;&nbsp;&nbsp;"+percentcount);
+		$("#m7").append("&nbsp;&nbsp;&nbsp;"+datecount);
+		$("#m8").append("&nbsp;&nbsp;&nbsp;"+timecount);
+    	
     		//alert(sentences);
     		
     		//sentences=sentences.replace(/Bob/g,'<code>Bob</code>');
@@ -101,7 +114,7 @@
     
     	
     	
-       
+
 
 <div class="span4">	
 		<div class="box">
@@ -184,5 +197,8 @@
 		</p>
 		<a class="btn primary" href="@routes.InputData.getInput">Try another text</a><br/><br/>
 </div>
-		
+
+
+	</div>
+	<br/><br/><br/><br/><br/><br/>	
 }
