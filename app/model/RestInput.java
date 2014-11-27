@@ -20,6 +20,11 @@ public class RestInput
     public String destination_type;
     public String destination_path;
 
+    public RestInput()
+    {
+        analysisSet = new TreeSet<String>();
+        entitiesSet = new TreeSet<String>();
+    }
     public void loadData()
     {
        String[] analysisOptions = null;

@@ -45,18 +45,14 @@ public class InputData extends Controller
     {
         Form<DataContent>boundForm = productForm.bindFromRequest();
         DataContent product = boundForm.get();
-        EntityManager ex = new EntityManager();
-        String str=ex.getALLDocumentEntitiesINJSON(product.rawInput);
-        
-        //return ok(String.format("Example : %s", ex.getALLDocumentEntitiesINJSON(product.rawInput)));
-        
-        //JSON.parse(str);
-        
-       //str=str.replaceAll("\"", "");
-        
-        return ok(hello.render(str,product.rawInput));
- 
-         
-      
+        RestInput restIp = new RestInput();
+        ApiManager api = new ApiManager();
+
+        restIp.analysisSet.add("All");
+        restIp.analysis = "All";
+        restIp.inputtext = product.rawInput;
+
+      //  return ok(hello.render(str,product.rawInput));
+        return ok(api.retrieveTextAnalyticsOutput(restIp));
     }
 }
