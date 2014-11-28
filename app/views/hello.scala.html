@@ -9,6 +9,10 @@
     
     	$(document).ready(function(){
 
+    	//	 alert('The paragraph was clicked.');
+    		 
+    	
+    	
     	var series = @{Html(new Gson().toJson(name))};
     	var personcount=0;
     	var organizationcount=0;
@@ -20,10 +24,28 @@
     	
     	var sentences='';
     	
+		alert(series);
+		
+		
+		/*
+		
+		
     	$.each(JSON.parse(series), function(idx, obj) {
     	
+    		alert("M1-" + idx + ' '+ obj);		
+    		//alert(obj);
+    		
+    		$.each(obj, function(k1, v1) {
+                alert("M2-"+ k1 + ' ' + v1);
+                
+                $.each(v1, function(k2, v2) {
+                    alert("M3-" + k2 + ' ' + v2);
+                }); 
+                
+            });
     		
     		sentences= sentences + obj.sentence;
+			
     		if(obj.person.length>0)
     		{
     			personcount=personcount+1;
@@ -67,6 +89,7 @@
     			sentences=sentences.replace(re,'<code class=timehighlight>'+ obj.time + '</code>');
     		}
     		
+			//alert(obj.organization);
     		$("#person").append($('<li>').append(obj.person));
     		$("#organization").append($('<li>').append(obj.organization));
     		$("#location").append($('<li>').append(obj.location));
@@ -78,7 +101,10 @@
     		
     		//alert(obj.person);
     	});
-    		
+    	
+		
+		*/
+		
     	/*
     		$("#m2").append( "<div style='background-color:yellow;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " + personcount + " ]</div>");
     		$("#m3").append("<div style='background-color:#CEF7A2;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +organizationcount + " ]</div>");
@@ -89,6 +115,93 @@
     		$("#m8").append("<div style='background-color:#FCCB55;width:25px;padding-left:3px;padding-right:3px;display:inline'>[ " +timecount+ " ]</div>");
     		
     	*/
+    	
+    	personcount=0;
+    	organizationcount=0;
+    	locationcount=0;
+    	currencycount=0;
+    	percentcount=0;
+    	datecount=0;
+    	timecount=0;
+    	
+    	var str="@input";
+    	
+    	$.each(JSON.parse(series), function(idx, obj) {
+    		
+    		//$("#person").append($('<li>').append(obj.person));
+    		
+    		$.each(obj, function(k1, v1) {
+                //alert("M2-"+ k1 + ' ' + v1);
+                
+                //$("#person").append($('<li>').append(v1));
+                
+        		        
+                
+    			$.each(v1, function(k2, v2) {
+                  //  alert("M3-" + k1 + ' ' + v2);
+                    	if(k1=='person')
+                    	{
+                    		personcount=personcount+1;
+                    		$("#person").append($('<li class="persons">').append(v2));
+                    		var re = new RegExp(v2,"g");
+                    		str=str.replace(re,'<code class=personhighlight>'+ v2 + '</code>');
+                    		//alert(str);
+                    	}
+                    	else if(k1=='organization')
+                    	{
+                    		organizationcount=organizationcount+1;
+                    		$("#organization").append($('<li>').append(v2));
+                    		var re = new RegExp(v2,"g");
+                    		str=str.replace(re,'<code class=organizationhighlight>'+ v2 + '</code>');
+                    		//alert(str);
+                    		
+                    	}
+                    	else if(k1=='location')
+                    	{
+                    		locationcount=locationcount+1;
+                    		$("#location").append($('<li>').append(v2));
+                    		var re = new RegExp(v2,"g");
+                    		str=str.replace(re,'<code class=locationhighlight>'+ v2 + '</code>');
+                    		//alert(str);
+                    	}
+                    	else if(k1=='currency')
+                    	{
+                    		currencycount=currencycount+1;
+                    		$("#currency").append($('<li>').append(v2));
+                    		var re = new RegExp(v2,"g");
+                    		str=str.replace(re,'<code class=currencyhighlight>'+ v2 + '</code>');
+                    		//alert(str);
+                    	}
+                    	else if(k1=='percent')
+                    	{
+                    		currencycount=currencycount+1;
+                    		$("#percent").append($('<li>').append(v2));
+                    		var re = new RegExp(v2,"g");
+                    		str=str.replace(re,'<code class=percenthighlight>'+ v2 + '</code>');
+                    		//alert(str);
+                    	}
+                    	else if(k1=='date')
+                    	{
+                    		currencycount=currencycount+1;
+                    		$("#date").append($('<li>').append(v2));
+                    		var re = new RegExp(v2,"g");
+                    		str=str.replace(re,'<code class=datehighlight>'+ v2 + '</code>');
+                    		//alert(str);
+                    	}
+                    	else if(k1=='time')
+                    	{
+                    		currencycount=currencycount+1;
+                    		$("#time").append($('<li>').append(v2));
+                    		var re = new RegExp(v2,"g");
+                    		str=str.replace(re,'<code class=timehighlight>'+ v2 + '</code>');
+                    		//alert(str);
+                    	}
+                });
+                
+    		});
+    		
+    	});
+    	
     	
     	
     	$("#m2").append("&nbsp;&nbsp;&nbsp;"+personcount);
@@ -103,8 +216,16 @@
     		
     		//sentences=sentences.replace(/Bob/g,'<code>Bob</code>');
     
+    	
+    	
     		
-    		$("#userinput").html(sentences);	
+    	$("#userinput").html(str);	
+    		
+		//alert(str);
+    	
+    	
+    		
+    		
     	});
     	
     	
@@ -195,10 +316,15 @@
 		<p id="userinput" class="inputdisplay">
 	
 		</p>
+		
+		
+
+		
 		<a class="btn primary" href="@routes.InputData.getInput">Try another text</a><br/><br/>
 </div>
 
 
+	</div>
 	</div>
 	<br/><br/><br/><br/><br/><br/>	
 }

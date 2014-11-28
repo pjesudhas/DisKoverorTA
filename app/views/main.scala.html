@@ -37,6 +37,12 @@
 		 <script>
 			$(function(){
 				
+				
+				$("#aboutdiskoveror").click(function(){
+	    			   alert("The paragraph was clicked.");
+	    			  });	
+	    		
+				
 							
 							$("#l1cover").toggle();
 							$("#l2cover").toggle();
@@ -55,8 +61,8 @@
 							        duration: 1000
 							      },
 							      hide: {
-							        effect: "explode",
-							        duration: 1000
+							        effect: "blind",
+							        duration: 300
 							      }
 							    });
 							
@@ -112,14 +118,18 @@
     
    
     
-   <div class="topbar">
-            <div class="fill">
-                <div class="container" >
+   <div class="topbar" style="background-color:#628D9B">
+           <!-- <div class="fill" style="background-color:#628D9B"> -->
+                <div class="container" style="background-color:#628D9B;width:100%;padding-left:180px">
                     <div class="brand"><img class="rotate" src="@routes.Assets.at("images/logo.png")" ></img>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <img src="@routes.Assets.at("images/banner.png")" ></img></div>
+                    <img src="@routes.Assets.at("images/banner.png")" ></img>
+					<span id="btnabout" style="float:right;font-size:14px;padding-top:45px;padding-left:190px">
+					<a href="#" style="text-decoration:none;color:white">About Diskoveor</a></span>
+					</div>
+					
                 </div>
-            </div>
+            <!--</div>-->
   	</div>
   	
   	<div class="container">    
@@ -154,7 +164,7 @@
   	<br/>
  	<div class="footer">
       		 
-       			<p style="color:white"><i>copy rights reserved &copy; DTAE 2014</i></p>
+       			<p style="color:white"><i>Copy rights reserved &copy; DISKOVEROR 2014</i></p>
        			
       </div>
     </body>

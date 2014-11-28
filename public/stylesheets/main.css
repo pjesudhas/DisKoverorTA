@@ -1,4 +1,5 @@
-html, body {
+lack
+, body {
     background-color: #eee;
 }
 body {
@@ -68,13 +69,21 @@ body {
 }	
 
 .headingPara{
-	border : 0px solid black;
+	border : 0px solid ;
 	padding:10px;
-	background-color: #0FAAD6;
+	background-color: #197C9D;
 	color:white;
 	
 
 }
+
+.fill{
+	background-color: white;
+	color:white;
+	
+
+}
+
 #rawInput{
 	margin-left:-150px;
 	width:600px;
@@ -97,7 +106,7 @@ body {
 }	
 
 .topbar{
-	background-color: black;
+	background-color: #628D9B;
 	color:white
 }
 
@@ -121,7 +130,7 @@ ul li{
 		
 		text-color:black;
 		padding-top:5px;
-		background-color: black;
+		background-color: #628D9B;
 		text-align: center;
 		height:25px;
 }
@@ -142,6 +151,7 @@ fieldset{
 	}
 	
 .rotate:hover{
+	
 		-webkit-transform: rotate(360deg) scale(.6);
 		transform: rotate(360deg) scale(.6);
 	}

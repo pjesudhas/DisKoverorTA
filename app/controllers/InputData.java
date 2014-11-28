@@ -51,8 +51,15 @@ public class InputData extends Controller
         restIp.analysisSet.add("All");
         restIp.analysis = "All";
         restIp.inputtext = product.rawInput;
+        
+        
+        
+        
 
-      //  return ok(hello.render(str,product.rawInput));
-        return ok(api.retrieveTextAnalyticsOutput(restIp));
+        return ok(hello.render(api.retrieveTextAnalyticsOutput(restIp),product.rawInput));
+        
+        //return ok(hello.render("sdsadsa",product.rawInput));
+      
+        //return ok(api.retrieveTextAnalyticsOutput(restIp));
     }
 }
