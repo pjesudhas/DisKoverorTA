@@ -48,6 +48,9 @@ public class InputData extends Controller
         RestInput restIp = new RestInput();
         ApiManager api = new ApiManager();
 
+	product.rawInput = product.rawInput.replace("\n","");
+        product.rawInput = product.rawInput.replace("\r","");
+
         restIp.analysisSet.add("All");
         restIp.analysis = "All";
         restIp.inputtext = product.rawInput;
