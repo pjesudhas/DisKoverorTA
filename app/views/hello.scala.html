@@ -18,6 +18,63 @@
 		}
 		
 		
+		$("#person").on('click','#pers',function () {
+								var selectedEntity=$(this).text();
+								var str=$('#userinput').text();
+								var re = new RegExp(selectedEntity,"ig");
+								str=str.replace(re,'<code class=personhighlight>'+ selectedEntity + '</code>');
+								$('#userinput').html(str);
+							});
+
+		
+		$("#location").on('click','#loc',function () {
+								var selectedEntity=$(this).text();
+								var str=$('#userinput').text();
+								var re = new RegExp(selectedEntity,"ig");
+								str=str.replace(re,'<code class=locationhighlight>'+ selectedEntity + '</code>');
+								$('#userinput').html(str);
+							});
+		
+		$("#organization").on('click','#org',function () {
+								var selectedEntity=$(this).text();
+								var str=$('#userinput').text();
+								var re = new RegExp(selectedEntity,"ig");
+								str=str.replace(re,'<code class=organizationhighlight>'+ selectedEntity + '</code>');
+								$('#userinput').html(str);
+							});
+		
+		
+		$("#currency").on('click','#curr',function () {
+								var selectedEntity=$(this).text();
+								var str=$('#userinput').text();
+								var re = new RegExp(selectedEntity,"ig");
+								str=str.replace(re,'<code class=currencyhighlight>'+ selectedEntity + '</code>');
+								$('#userinput').html(str);
+							});
+							
+		$("#percent").on('click','#perc',function () {
+								var selectedEntity=$(this).text();
+								var str=$('#userinput').text();
+								var re = new RegExp(selectedEntity,"ig");
+								str=str.replace(re,'<code class=percenthighlight>'+ selectedEntity + '</code>');
+								$('#userinput').html(str);
+							});
+		
+		$("#date").on('click','#dat',function () {
+								var selectedEntity=$(this).text();
+								var str=$('#userinput').text();
+								var re = new RegExp(selectedEntity,"ig");
+								str=str.replace(re,'<code class=datehighlight>'+ selectedEntity + '</code>');
+								$('#userinput').html(str);
+							});
+							
+		$("#time").on('click','#tim',function () {
+								var selectedEntity=$(this).text();
+								var str=$('#userinput').text();
+								var re = new RegExp(selectedEntity,"ig");
+								str=str.replace(re,'<code class=timehighlight>'+ selectedEntity + '</code>');
+								$('#userinput').html(str);
+							});
 		
     	var series = @{Html(new Gson().toJson(name))};
     	var personcount=0;
@@ -46,8 +103,9 @@
 							//alert("AcM3-" + capitalizeString(k2));
 							personcount=personcount+1;
 							var capStr=capitalizeString(k2);
-							//var capStr=k2;
-                    		$("#person").append($('<li>').append(capStr));
+							var strr="<li id='pers'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
+							//$("#person").append($("<li><a id='pers' href='#'>").append(capStr));
+							$("#person").append(strr);
                     		var re = new RegExp(capStr,"ig");
                     		str=str.replace(re,'<code class=personhighlight>'+ capStr + '</code>');
                     		//alert(str);
@@ -66,7 +124,10 @@
 							//alert("AcM3-" + capitalizeMe(k2));
 							locationcount=locationcount+1;
 							var capStr=capitalizeString(k2);
-                    		$("#location").append($('<li>').append(capStr));
+							var strr="<li id='loc'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
+							$("#location").append(strr);
+							
+                    		//$("#location").append($('<li>').append(capStr));
                     		var re = new RegExp(capStr,"g");
                     		str=str.replace(re,'<code class=locationhighlight>'+ capStr + '</code>');
                     		//alert(str);
@@ -82,8 +143,10 @@
 							//alert("AcM3-" + capitalizeMe(k2));
 							organizationcount=organizationcount+1;
 							var capStr=capitalizeString(k2);
-							//var capStr=k2;
-                    		$("#organization").append($('<li>').append(capStr));
+							var strr="<li id='org'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
+							$("#organization").append(strr);
+							
+                    		//$("#organization").append($('<li>').append(capStr));
                     		var re = new RegExp(capStr,"ig");
                     		str=str.replace(re,'<code class=organizationhighlight>'+ capStr + '</code>');
                     		//alert(str);
@@ -101,7 +164,11 @@
 							//alert("AcM3-" + capitalizeMe(k2));
 							currencycount=currencycount+1;
 							var capStr=capitalizeString(k2);
-                    		$("#currency").append($('<li>').append(capStr));
+							
+							var strr="<li id='curr'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
+							$("#currency").append(strr);
+							
+                    		//$("#currency").append($('<li>').append(capStr));
                     		var re = new RegExp(capStr,"ig");
                     		str=str.replace(re,'<code class=currencyhighlight>'+ capStr + '</code>');
                     		//alert(str);
@@ -117,7 +184,12 @@
 							//alert("AcM3-" + capitalizeMe(k2));
 							percentcount=percentcount+1;
 							var capStr=capitalizeString(k2);
-                    		$("#percent").append($('<li>').append(capStr));
+							
+							
+							var strr="<li id='perc'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
+							$("#percent").append(strr);
+							
+                    		//$("#percent").append($('<li>').append(capStr));
                     		var re = new RegExp(capStr,"ig");
                     		str=str.replace(re,'<code class=percenthighlight>'+ capStr + '</code>');
                     		//alert(str);
@@ -133,7 +205,11 @@
 							//alert("AcM3-" + capitalizeMe(k2));
 							datecount=datecount+1;
 							var capStr=capitalizeString(k2);
-                    		$("#date").append($('<li>').append(capStr));
+                    		
+							var strr="<li id='dat'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
+							$("#date").append(strr);
+							
+							//$("#date").append($('<li>').append(capStr));
                     		var re = new RegExp(capStr,"ig");
                     		str=str.replace(re,'<code class=datehighlight>'+ capStr + '</code>');
                     		//alert(str);
@@ -149,7 +225,11 @@
 							//alert("AcM3-" + capitalizeMe(k2));
 							timecount=timecount+1;
 							var capStr=capitalizeString(k2);
-                    		$("#time").append($('<li>').append(capStr));
+							
+							var strr="<li id='tim'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
+							$("#time").append(strr);
+							
+                    		//$("#time").append($('<li>').append(capStr));
                     		var re = new RegExp(capStr,"ig");
                     		str=str.replace(re,'<code class=timehighlight>'+ capStr + '</code>');
                     		//alert(str);
@@ -257,10 +337,13 @@
 
 <div class="span8">
 		<p id="userinput" class="inputdisplay">
-	
+		
 		</p>
 		
 		<a class="btn primary" href="@routes.InputData.getInput">Try another text</a><br/><br/>
+		
+		
+		
 </div>
 
 
