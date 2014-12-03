@@ -1,6 +1,6 @@
 lack
 , body {
-    background-color: #aeaeae;
+    background-color: #egegeg;
     font-family:arial;
     font-size:14px;
 }
@@ -71,6 +71,8 @@ body {
 	background-color: #FFFDF9;
 	padding: 20px;
 	width:580px;
+	height:470px;
+	overflow:auto;
 }	
 
 .topbar{
@@ -153,8 +155,8 @@ fieldset{
 @media (min-width: 920px) {
   .container {
     max-width: 900px;
-    border-right:1px solid #000;
-    border-left:1px solid #000;
+    border-right:1px solid #aeaeae;
+    border-left:1px solid #aeaeae;
     background-color:#eee;
     
   }

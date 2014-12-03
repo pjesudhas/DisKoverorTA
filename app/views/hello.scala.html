@@ -272,9 +272,9 @@
 
 <div class="row" style="height:520px">
 <div class="col-lg-4">	
-		<div class="box">
+		<div class="box" >
 			<p class="headingPara">Entities</p>
-			<ul id="tab" style="padding-left:10px">
+			<ul id="tab" style="padding-left:10px;max-height:430px;overflow:auto">
 				<li id="m2" class="header">Person</li>
 				<li>
 					<div id="l2cover">
@@ -336,17 +336,33 @@
 </div>
 
 <div class="col-lg-8" style="padding-left:2px">
-		<p id="userinput" class="inputdisplay">
-		
+
+
+	<p id="userinput" class="inputdisplay">
+			
 		</p>
 		
-		<div class="mybutton" style="width:140px;height:30px;line-height:30px;">
-		<a href="@routes.InputData.getInput" style="text-decoration:none;color:white;" title="Click here to give input">Try another text</a><br/><br/>
-		</div>
+	<div class="row">
+		<div class="col-lg-4">
+			<div class="mybutton" style="width:140px;height:30px;line-height:30px;display:block">
+			<a href="@routes.InputData.getInput" style="text-decoration:none;color:white;" title="Click here to give input">Try another text</a>
 		
-		<!--  
-		<input type=button class="mybutton" style="width:140px;height:30px"  value="Try another text"></input><br/><br/>
-		-->
+			</div>			
+		</div>
+		<div class="col-lg-7" style="line-height:30px;text-align:right">
+			<a href="#" id="scrolltop" style="text-decoration:none;color:#000">Top</a>
+		</div>
+	</div>
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 </div>
 </div>
