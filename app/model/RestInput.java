@@ -19,11 +19,13 @@ public class RestInput
     public String inputtext;
     public String destination_type;
     public String destination_path;
+    public boolean apiMode;
 
     public RestInput()
     {
         analysisSet = new TreeSet<String>();
         entitiesSet = new TreeSet<String>();
+        apiMode = false;
     }
     public void loadData()
     {

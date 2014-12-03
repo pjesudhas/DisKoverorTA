@@ -2,6 +2,7 @@ package api;
 
 import com.diskoverorta.tamanager.TextManager;
 import com.diskoverorta.vo.TAConfig;
+import com.serendio.diskoverer.lifesciences.LSManager;
 import model.RestInput;
 
 /**
@@ -16,7 +17,12 @@ public class ApiManager
         taConfig = updateConfig(res,taConfig);
         TextManager manager = new TextManager();
 
-        String data = manager.tagTextAnalyticsComponentsINJSON(inputText,taConfig);
+        String data ="";
+        if(res.apiMode == false)
+            data = manager.tagTextAnalyticsComponentsINJSON(inputText,taConfig);
+        else
+            data = manager.tagUniqueTextAnalyticsComponentsINJSON(inputText,taConfig);
+
         return data;
     }
 
@@ -27,10 +33,14 @@ public class ApiManager
             for(String temp : res.analysisSet)
             {
                 if(temp.equals("All") == true)
-                    conf.analysisConfig.put("Entity","TRUE");
-
+                {
+                    conf.analysisConfig.put("Entity", "TRUE");
+                    conf.analysisConfig.put("LSEntity", "TRUE");
+                }
                 if(temp.equals("Entity") == true)
                     conf.analysisConfig.put("Entity","TRUE");
+                if(temp.equals("LSEntity") == true)
+                    conf.analysisConfig.put("LSEntity","TRUE");
             }
         }
 
@@ -46,7 +56,7 @@ public class ApiManager
                 conf.entityConfig.put("Currency","TRUE");
                 conf.entityConfig.put("Percent","TRUE");
             }
-            else
+            else if((res.entities != null) && (res.entities.isEmpty() == false))
             {
                 for(String temp : res.entitiesSet)
                 {

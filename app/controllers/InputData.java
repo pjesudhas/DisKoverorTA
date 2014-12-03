@@ -34,7 +34,12 @@ public class InputData extends Controller
     public static Result getAPIInput()
     {
         Form<RestInput>restData = restInput.bindFromRequest();
+
         RestInput data = restData.get();
+        data.inputtext = data.inputtext.replace("\n","");
+        data.inputtext = data.inputtext.replace("\r","");
+        data.apiMode = true;
+
         data.loadData();
 
         ApiManager api = new ApiManager();
@@ -48,15 +53,14 @@ public class InputData extends Controller
         RestInput restIp = new RestInput();
         ApiManager api = new ApiManager();
 
+        product.rawInput = product.rawInput.replace("\n","");
+        product.rawInput = product.rawInput.replace("\r","");
         restIp.analysisSet.add("All");
         restIp.analysis = "All";
-        restIp.inputtext = product.rawInput;
-        
-        
-        
-        
 
-        return ok(hello.render(api.retrieveTextAnalyticsOutput(restIp),product.rawInput));
+        restIp.inputtext = product.rawInput;
+
+        return ok(hello.render(api.retrieveTextAnalyticsOutput(restIp),restIp.inputtext));
         
         //return ok(hello.render("sdsadsa",product.rawInput));
       
