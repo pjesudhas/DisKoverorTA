@@ -4,9 +4,12 @@
 
 <html>
     <head>
+    
         <title>@title</title>
+        <!--  
         <link href="@routes.Assets.at("bootstrap/css/bootstrap.css")" rel="stylesheet" media="screen">
-       
+       -->
+       <link href="@routes.Assets.at("bootstrap/css/bootstrap.min.css")" rel="stylesheet" media="screen">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/jquery-ui.css")">
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
@@ -16,10 +19,10 @@
          <style>
 			
 			.header{
-					background-image:url(@routes.Assets.at("images/expandsmall.gif"));
+					background-image:url(@routes.Assets.at("images/expandsmall.png"));
 					background-repeat: no-repeat;
 					background-position: 0px 2px; 
-    				padding-left: 14px;
+    				padding-left: 16px;
     				font-size: 12px;
     				color:black;
     				font-weight: bold;
@@ -28,15 +31,15 @@
 			}
 
 			.imagechange{
-					background-image:url(@routes.Assets.at("images/collapsesmall.gif"));
+					background-image:url(@routes.Assets.at("images/collapsesmall.png"));
 					background-repeat: no-repeat;
 					background-position: 0px 2px; 
-    				padding-left: 14px;
+    				padding-left: 16px;
 			}
 			
 			.mybutton{
   
-						background-color: #15C1E5;
+						background-color: #06A4C5;
 						
 						width:120px;
 						height:30px;
@@ -50,7 +53,8 @@
 						color:white;
 						font-weight:bold;
 			}
-  
+
+						  
 		</style>
 		 <script>
 			$(function(){
@@ -60,7 +64,7 @@
 	    			   alert("The paragraph was clicked.");
 	    			  });	
 	    		
-				
+
 							
 							$("#l1cover").toggle();
 							$("#l2cover").toggle();
@@ -84,6 +88,15 @@
 							      }
 							    });
 							
+							$("#btnabout").hover(function () {
+								$( "#btnabout" ).fadeTo('slow',0.6);
+
+							},
+							function () {
+								$( "#btnabout" ).fadeTo('slow',1);
+
+							}
+							);
 							
 							
 							$("#img1").hover(function () {
@@ -136,12 +149,14 @@
 								$(".mybutton").css("font-size","14px");
 	$(".mybutton").css("letter-spacing","1px");
 	$(".mybutton").css("color","black");
+	$(".mybutton a").css("color","black");
   });
   $(".mybutton").mouseout(function(){
-    $(".mybutton").css("background-color","#15C1E5");
+    $(".mybutton").css("background-color","#06A4C5");
 	$(".mybutton").css("font-size","12px");
 	$(".mybutton").css("letter-spacing","0px");
 	$(".mybutton").css("color","white");
+	$(".mybutton a").css("color","white");
   });
 					
 });
@@ -150,24 +165,48 @@
     <body>
     
    
-    
+   
+   <!--   
    <div class="topbar" style="background-color:#628D9B">
-           <!-- <div class="fill" style="background-color:#628D9B"> -->
                 <div class="container" style="background-color:#628D9B;width:100%;padding-left:180px">
                     <div class="brand"><img class="rotate" src="@routes.Assets.at("images/logo.png")" ></img>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <img src="@routes.Assets.at("images/banner.png")" ></img>
 					<span id="btnabout" style="float:right;font-size:14px;padding-top:45px;padding-left:190px">
-					<a href="#" style="text-decoration:none;color:white">About Diskoveor</a></span>
+					<a href="#" style="text-decoration:none;color:white"><img src="@routes.Assets.at("images/about.png")" ></img></a></span>
 					</div>
 					
                 </div>
-            <!--</div>-->
+            
   	</div>
   	
+  	-->
+  	
+  	<div class="container">
+  		<div class="row" style="background-color:#628D9B">
+  		<div class="col-lg-12">
+  				<div class="brand"><img class="rotate" src="@routes.Assets.at("images/logo.png")" ></img>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <img src="@routes.Assets.at("images/banner.png")" ></img>
+								
+				</div>
+		</div>
+		</div>
+		
+		<div class="row" style="background-color:#628D9B">
+  		<div class="col-lg-12">
+  		
+  				<a href="#" id="btnabout" title="know about Diskoveror" style="text-decoration:none;color:white;float:right"><span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>&nbsp;&nbsp;About Diskoveror</a>
+		</div>
+		</div>
+		
+  	</div>
+  	
+  	<!--
   	<div class="container">    
-     	<br/><br/><br/><br/><br/>
-     <!-- 	
+     -->
+     	
+    <!--   
      <div class="row">
 
 		<div class="span12">
@@ -188,17 +227,24 @@
      -->
      
      
-     <div class="container" id="contentbody">    
-     	<br/>
-     	<div class="row" style="height:400px">
+    <div class="container" id="contentbody">   
+    <br/><br/> 
+      
+     	<!-- <div class="row" style="height:400px"> -->
         @content
-        </div>
-     </div>   
-  	<br/>
- 	<div class="footer">
-      		 
-       			<p style="color:white"><i>Copy rights reserved &copy; DISKOVEROR 2014</i></p>
-       			
+        <!-- </div> -->
+        
+    </div>   
+  	
+  	
+ 	<div class="container">
+      		 <div class="row" style="background-color:#628D9B">
+      		 	<div class="col-lg-12">
+      		 	<center>
+       			<p style="color:white;padding-top:4px;font-size:12px"><i>Copy rights reserved &copy; DISKOVEROR 2014</i></p>
+       			</center>
+       			</div>
+      		</div>	 			
       </div>
     </body>
 </html>

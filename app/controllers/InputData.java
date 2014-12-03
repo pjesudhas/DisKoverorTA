@@ -54,7 +54,7 @@ public class InputData extends Controller
         
         
         
-        
+       
 
         return ok(hello.render(api.retrieveTextAnalyticsOutput(restIp),product.rawInput));
         
