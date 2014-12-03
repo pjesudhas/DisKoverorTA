@@ -5,27 +5,15 @@
  
   
    
-     <div class="row" >
+     <div class="row" style="height:520px">
      	
-     	<!-- 
-     	<div class="span5">
-     		
-     		<div class="headingPara"><b>About</b></div>
-     		
-        	<p id="about"> 
-        	
-        	The DisKoveror Text analytics engine(DTAE) is a software product developed by Serendio for extracting information such as Sentiment, Text categories, named entities etc from unstructured text. DTAE is useful in extracting information from Twitter streams, product reviews, emails, webpages and any other source of unstructured information.
-            	Potential applications for DTAE includes but are not limited to Legal document analysis, Social media analysis, Insurance fraud detection, Bio entity detection, Movie popularity detection etc.
-        	<br/><br/>
-        	</p>
-		</div>
-		
-		 -->
-		 
-		<div class="span11" style="padding-left:20px">
+     	<div class="col-lg-8" style="padding-left:15px">
 	
 			
     		<h4>Test phase drive our system</h4>
+    		
+    		<div style="border:0px solid;margin-left:2px">
+    		
         	@helper.form(action = routes.InputData.getTaggedOutput()) {
             <fieldset>
 
@@ -36,7 +24,10 @@
                	 
             	</fieldset>
             	
-           
+				
+           </div>
+		   
+
           	<input type="submit" id="btnsubmit" class="mybutton" style="width:140px;height:30px" value="Process Data" title="Click here to process input"></input>
 			
 			<!--
@@ -68,7 +59,7 @@
         
        	</div>
        
- 		<div class="span5" >
+ 		<div class="col-lg-4" style="padding-left:25px">
  		
      		<br/><br/><br/>
      		
@@ -76,18 +67,9 @@
      		
         	<p id="about"> 
         	
-        		<input type="checkbox"><span style="padding-left:5px">General</span></checkbox><br/>
+        		<input type="checkbox" checked><span style="padding-left:5px">General</span></checkbox><br/>
         		<input type="checkbox"><span style="padding-left:5px">Life Science</span></checkbox>
         	<br/><br/>
-        	
-        	<!--
-        	
-        	<div style="background-color:#2E85D2">
-        	<img id="b100" class="rotate" src="@routes.Assets.at("images/button2.png")" >Diskovrer</img>
-        	</div>
-        	
-        	  -->
-        	
         	</p>
 		</div>
        
@@ -105,5 +87,5 @@
   </p>
 	</div>
 
- <br/><br/><br/><br/><br/><br/>
+ 
 }

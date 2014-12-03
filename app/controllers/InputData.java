@@ -60,6 +60,7 @@ public class InputData extends Controller
 
         restIp.inputtext = product.rawInput;
 
+
         return ok(hello.render(api.retrieveTextAnalyticsOutput(restIp),restIp.inputtext));
         
         //return ok(hello.render("sdsadsa",product.rawInput));

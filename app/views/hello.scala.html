@@ -11,7 +11,7 @@
 
     	//	 alert('The paragraph was clicked.');
     		 
-    	
+    
     	
 		function capitalizeString(val){
 			return val.charAt(0).toUpperCase()+val.substr(1).toLowerCase();
@@ -270,15 +270,15 @@
     	
     	
 
-
-<div class="span4">	
+<div class="row" style="height:520px">
+<div class="col-lg-4">	
 		<div class="box">
 			<p class="headingPara">Entities</p>
-			<ul id="tab">
+			<ul id="tab" style="padding-left:10px">
 				<li id="m2" class="header">Person</li>
 				<li>
 					<div id="l2cover">
-						<ul id="person">
+						<ul id="person" style="padding-left:22px">
 									
 						</ul>
 					</div>
@@ -286,7 +286,7 @@
 				<li id="m3" class="header">Organization</li>
 				<li>
 					<div id="l3cover">
-						<ul id="organization">
+						<ul id="organization" style="padding-left:22px">
 									
 						</ul>
 					</div>
@@ -294,7 +294,7 @@
 				<li id="m4" class="header">Location</li>
 				<li>
 					<div id="l4cover">
-						<ul id="location">
+						<ul id="location" style="padding-left:22px">
 									
 						</ul>
 					</div>
@@ -302,7 +302,7 @@
 				<li id="m5" class="header">Currency</li>
 				<li>
 					<div id="l5cover">
-						<ul id="currency">
+						<ul id="currency" style="padding-left:22px">
 									
 						</ul>
 					</div>
@@ -310,7 +310,7 @@
 				<li id="m6" class="header">Percent</li>
 				<li>
 					<div id="l6cover">
-						<ul id="percent">
+						<ul id="percent" style="padding-left:22px">
 									
 						</ul>
 					</div>
@@ -318,7 +318,7 @@
 				<li id="m7" class="header">Date</li>
 				<li>
 					<div id="l7cover">
-						<ul id="date">
+						<ul id="date" style="padding-left:22px">
 									
 						</ul>
 					</div>
@@ -326,7 +326,7 @@
 				<li id="m8" class="header">Time</li>
 				<li>
 					<div id="l8cover">
-						<ul id="time">
+						<ul id="time" style="padding-left:22px">
 									
 						</ul>
 					</div>
@@ -335,19 +335,24 @@
 		</div>	
 </div>
 
-<div class="span8">
+<div class="col-lg-8" style="padding-left:2px">
 		<p id="userinput" class="inputdisplay">
 		
 		</p>
 		
-		<a class="btn primary" href="@routes.InputData.getInput">Try another text</a><br/><br/>
+		<div class="mybutton" style="width:140px;height:30px;line-height:30px;">
+		<a href="@routes.InputData.getInput" style="text-decoration:none;color:white;" title="Click here to give input">Try another text</a><br/><br/>
+		</div>
 		
-		
+		<!--  
+		<input type=button class="mybutton" style="width:140px;height:30px"  value="Try another text"></input><br/><br/>
+		-->
 		
 </div>
-
+</div>
 
 	</div>
 	</div>
-	<br/><br/><br/><br/><br/><br/>	
+	
+	
 }
