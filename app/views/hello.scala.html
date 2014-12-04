@@ -14,16 +14,44 @@
     
     	
 		function capitalizeString(val){
-			return val.charAt(0).toUpperCase()+val.substr(1).toLowerCase();
+			var res=val.split(" ");
+			var str="";
+			var completeStr="";
+			$.each(res, function(k1, v1) {
+				str=v1.charAt(0).toUpperCase()+v1.substr(1).toLowerCase();
+				
+				if(completeStr.length>0)
+					completeStr=completeStr + ' ' + str;
+				else
+					completeStr=str;
+			});
+			
+			return completeStr.trim();
 		}
 		
 		
 		$("#person").on('click','#pers',function () {
 								var selectedEntity=$(this).text();
 								var str=$('#userinput').text();
+								var inputStr="";
+								
 								var re = new RegExp(selectedEntity,"ig");
 								str=str.replace(re,'<code class=personhighlight>'+ selectedEntity + '</code>');
+								//$('#userinput').html(str);
+								
+								var res=selectedEntity.split(" ");
+								$.each(res, function(k1, v1) {
+									
+									//alert(v1);
+									v1=v1.charAt(0).toUpperCase()+v1.substr(1).toLowerCase();
+									var re = new RegExp(v1,"ig");
+									str=str.replace(re,'<code class=personhighlight>'+ v1 + '</code>');
+									//inputStr=inputStr+str;
+									
+									
+								});
 								$('#userinput').html(str);
+								
 							});
 
 		
@@ -47,16 +75,27 @@
 		$("#currency").on('click','#curr',function () {
 								var selectedEntity=$(this).text();
 								var str=$('#userinput').text();
-								var re = new RegExp(selectedEntity,"ig");
-								str=str.replace(re,'<code class=currencyhighlight>'+ selectedEntity + '</code>');
+							
+								var tmp=selectedEntity;
+								var specials = new RegExp("[.*+?|()\\[\\]{}\\\\]", "g"); 
+		 						re=selectedEntity.replace(specials, "\\$&");
+								str=str.replace(re,'<code class=currencyhighlight>'+ tmp + '</code>');
 								$('#userinput').html(str);
-							});
+								
+		});
 							
 		$("#percent").on('click','#perc',function () {
 								var selectedEntity=$(this).text();
 								var str=$('#userinput').text();
+								/*
 								var re = new RegExp(selectedEntity,"ig");
 								str=str.replace(re,'<code class=percenthighlight>'+ selectedEntity + '</code>');
+								$('#userinput').html(str);
+								*/
+								var tmp=selectedEntity;
+								var specials = new RegExp("[.*+?|()\\[\\]{}\\\\]", "g"); 
+		 						re=selectedEntity.replace(specials, "\\$&");
+								str=str.replace(re,'<code class=percenthighlight>'+ tmp + '</code>');
 								$('#userinput').html(str);
 							});
 		
@@ -95,6 +134,93 @@
     	$.each(JSON.parse(series), function(idx, obj) {
     		$.each(obj, function(k1, v1) {
                 //alert("M2-"+ k1 + ' ' + v1);
+                
+                if(k1=='date'){
+                	var datearray=[];
+                	$.each(v1, function(k10, v10) {
+						capStr=capitalizeString(v10);
+						var found = $.inArray(capStr, datearray);
+						//alert(found);
+						re = new RegExp(capStr,"ig");
+						str=str.replace(re,'<code class=datehighlight>'+ capStr + '</code>');
+						if(found==-1){
+							datecount=datecount+1;
+							datearray.push(capStr);
+							var strr="<li id='dat'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
+							$("#date").append(strr);
+						}
+					});
+                	
+                }
+                
+                if(k1=='currency'){
+                	var currencyarray=[];
+                	$.each(v1, function(k10, v10) {
+						capStr=capitalizeString(v10);
+						capStr=v10;
+						//alert(capStr);
+						var res=capStr.split(" ");
+						capStr=res[0]+res[1];
+						var found = $.inArray(capStr, datearray);
+						
+						var tmp=capStr;
+						var specials = new RegExp("[.*+?|()\\[\\]{}\\\\]", "g"); 
+ 						re=capStr.replace(specials, "\\$&");
+						str=str.replace(re,'<code class=currencyhighlight>'+ tmp + '</code>');
+						
+						if(found==-1){
+							currencycount=currencycount+1;
+							currencyarray.push(capStr);
+							var strr="<li id='curr'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
+							$("#currency").append(strr);
+						}
+					});
+                	
+                }
+                if(k1=='percent'){
+                	var percentarray=[];
+                	$.each(v1, function(k10, v10) {
+						capStr=capitalizeString(v10);
+						capStr=v10;
+						//alert(capStr);
+						var res=capStr.split(" ");
+						capStr=res[0]+res[1];
+						var found = $.inArray(capStr, percentarray);
+						
+						var tmp=capStr;
+						var specials = new RegExp("[.*+?|()\\[\\]{}\\\\]", "g"); 
+ 						re=capStr.replace(specials, "\\$&");
+						str=str.replace(re,'<code class=percenthighlight>'+ tmp + '</code>');
+						
+						if(found==-1){
+							percentcount=percentcount+1;
+							percentarray.push(capStr);
+							var strr="<li id='perc'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
+							$("#percent").append(strr);
+						}
+					});
+                	
+                }
+                
+                if(k1=='time'){
+                	var timearray=[];
+                	$.each(v1, function(k10, v10) {
+						//capStr=capitalizeString(v10);
+						capStr=v10;
+						var found = $.inArray(capStr, timearray);
+						//alert(found);
+						re = new RegExp(capStr,"ig");
+						str=str.replace(re,'<code class=timehighlight>'+ capStr + '</code>');
+						if(found==-1){
+							timecount=timecount+1;
+							timearray.push(capStr);
+							var strr="<li id='tim'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
+							$("#time").append(strr);
+						}
+					});
+                	
+                }
+                
     			$.each(v1, function(k2, v2) {
 				
 						if(k1=='personAlias')
@@ -164,6 +290,7 @@
 							//alert("AcM3-" + capitalizeMe(k2));
 							currencycount=currencycount+1;
 							var capStr=capitalizeString(k2);
+							
 							
 							var strr="<li id='curr'><a href='#' style='text-decoration:none;color:black'>" + capStr + "</a></li>";
 							$("#currency").append(strr);
