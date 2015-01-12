@@ -1,6 +1,6 @@
-lack
-, body {
-    background-color: #egegeg;
+
+ body {
+    background-color: #f3f4f7;
     font-family:arial;
     font-size:14px;
 }
@@ -20,7 +20,7 @@ body {
 
 /* Styles you shouldn't keep as they are for displaying this base example only */
 
-.
+
 .dataitems{
 	
 		margin-left: 12px;
