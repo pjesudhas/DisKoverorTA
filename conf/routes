@@ -9,8 +9,10 @@
 
 GET         /                    controllers.InputData.getInput()
 
-GET         /api                 controllers.InputData.getAPIInput()
+POST         /api                 controllers.InputData.getAPIInput()
 
+POST        /product/amc         controllers.InputData.getLegalTAOutput()
 POST        /output              controllers.InputData.getTaggedOutput()
 # Map static resources from the /public folder to the /assets URL path
 GET         /assets/*file        controllers.Assets.at(path="/public", file)
+

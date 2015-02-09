@@ -7,8 +7,10 @@ package controllers;
 import api.ApiManager;
 import com.diskoverorta.entities.*;
 
+import com.diskoverorta.legal.LegalManager;
 import edu.stanford.nlp.ling.CoreLabel;
 import model.DataContent;
+import model.LegalInput;
 import model.RestInput;
 import play.*;
 import play.data.*;
@@ -18,13 +20,16 @@ import play.mvc.Result;
 
 
 import java.util.List;
-
+import java.util.Map;
+import java.util.TreeMap;
 
 
 public class InputData extends Controller
 {
     private static final Form<DataContent>productForm = Form.form(DataContent.class);
+    private static final Form<LegalInput>legalInput = Form.form(LegalInput.class);
     private static final Form<RestInput>restInput = Form.form(RestInput.class);
+    static LegalManager legal = new LegalManager();
 
     public static Result getInput()
     {
@@ -44,6 +49,22 @@ public class InputData extends Controller
 
         ApiManager api = new ApiManager();
         return ok(api.retrieveTextAnalyticsOutput(data));
+    }
+
+    public static Result getLegalTAOutput()
+    {
+        Form<LegalInput>boundForm = legalInput.bindFromRequest();
+        Map<String,String> legConfig = new TreeMap<String,String>();
+        LegalInput product = boundForm.get();
+
+        product.inputtext = product.inputtext.replace("\n","");
+        product.inputtext = product.inputtext.replace("\r","");
+
+        if(product.chunksize != null)
+            legConfig.put("chunksize",product.chunksize);
+
+        String jsonOut = legal.tagLegalTextAnalyticsComponents(product.inputtext,legConfig);
+        return ok(jsonOut);
     }
 
     public static Result getTaggedOutput()
