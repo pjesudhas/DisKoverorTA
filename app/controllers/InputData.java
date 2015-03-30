@@ -62,6 +62,8 @@ public class InputData extends Controller
 
         if(product.chunksize != null)
             legConfig.put("chunksize",product.chunksize);
+        else
+            legConfig.put("chunksize","3");
 
         String jsonOut = legal.tagLegalTextAnalyticsComponents(product.inputtext,legConfig);
         return ok(jsonOut);
