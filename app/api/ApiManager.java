@@ -36,11 +36,16 @@ public class ApiManager
                 {
                     conf.analysisConfig.put("Entity", "TRUE");
                     conf.analysisConfig.put("LSEntity", "TRUE");
+                    conf.analysisConfig.put("Category", "TRUE");
+
                 }
                 if(temp.equals("Entity") == true)
                     conf.analysisConfig.put("Entity","TRUE");
                 if(temp.equals("LSEntity") == true)
                     conf.analysisConfig.put("LSEntity","TRUE");
+                if(temp.equals("Category") == true)
+                    conf.analysisConfig.put("Category","TRUE");
+
             }
         }
 

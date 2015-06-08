@@ -85,9 +85,9 @@ public class InputData extends Controller
 
 
         return ok(hello.render(api.retrieveTextAnalyticsOutput(restIp),restIp.inputtext));
-        
+
         //return ok(hello.render("sdsadsa",product.rawInput));
-      
+
         //return ok(api.retrieveTextAnalyticsOutput(restIp));
     }
 }
