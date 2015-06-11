@@ -1,8 +1,9 @@
 
  body {
-    background-color: #f3f4f7;
-    font-family:arial;
-    font-size:14px;
+    font-family:'Open Sans';
+    font-weight: 300;
+    font-weight: lighter;
+    color: black;
 }
 
 body {
@@ -52,12 +53,7 @@ body {
 
 }
 
-#rawInput{
-	margin-left:0px;
-	width:600px;
-	height:265px;
-	
-	}
+
 	
 	
 #about{
@@ -88,13 +84,7 @@ ul {
     				list-style-type: none;
    
 }
-			
-ul li{
-    				font-size: 12px;
-    				color:black;
-    				font-family: verdana;
-   
-}
+
 
 .footer{
 		
@@ -103,11 +93,6 @@ ul li{
 		background-color: #628D9B;
 		text-align: center;
 		height:25px;
-}
-.contentbody{
-		
-		height:800px;
-	
 }
 fieldset{
 	margin-bottom:0px;

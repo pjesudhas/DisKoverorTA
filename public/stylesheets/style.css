@@ -1,0 +1,102 @@
+html {
+	-webkit-font-smoothing: antialiased;
+}
+
+body {
+	font-family: 'Open Sans';
+	color: black;
+	font-weight: 300;
+	font-weight: lighter;
+}
+
+.row.full-width {
+    width: 100%;
+    max-width: 100%;
+}
+
+.header-nav {
+	padding-top: 50px;
+	font-size: 15px;
+	padding-bottom: 30px;
+}
+
+.icons {
+	width: 20px;
+}
+
+.top-logo {
+	font-size: 24px;
+}
+
+.bolder {
+	font-weight: 600;
+}
+
+.about {
+	width:25px;
+}
+
+a {
+	color : black;
+}
+
+.AnalyticEngine {
+	padding-top: 70px;
+}
+
+.AEText {
+	font-size: 30px;
+	font-weight: 300px;
+	font-weight: lighter;
+	padding-bottom: 20px;
+}
+
+.FixHeight {
+	height: 370px;
+	padding-bottom: 10px;
+}
+
+textarea {
+	height: 300px;
+	text-align: left;
+	width: 700px;
+    background: #ececec;
+    border-color: none;
+    outline: none; 
+    color : rgba(0,0,0,0.5);
+    border: none;
+}
+
+.entityList {
+	font-size: 14px;
+	margin-bottom: 0px;
+	margin: 0px;
+	line-height: 15px;
+}
+
+.entityListDiv {
+	padding-bottom: 10px;
+	padding-left: 30px;
+	display: none;
+}
+
+.entitySpan {
+	padding-right: 7px;
+}
+
+.symbol {
+	width:23px;
+	opacity: 0.6;
+}
+
+li {
+	list-style: none;
+}
+
+.final-options {
+	padding-top: 20px;
+}
+
+button {
+	font-size: 15px;
+}
