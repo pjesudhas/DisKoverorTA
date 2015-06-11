@@ -37,6 +37,7 @@ public class ApiManager
                     conf.analysisConfig.put("Entity", "TRUE");
                     conf.analysisConfig.put("LSEntity", "TRUE");
                     conf.analysisConfig.put("Category", "TRUE");
+                    conf.analysisConfig.put("Sentiment", "TRUE");
 
                 }
                 if(temp.equals("Entity") == true)
@@ -45,6 +46,8 @@ public class ApiManager
                     conf.analysisConfig.put("LSEntity","TRUE");
                 if(temp.equals("Category") == true)
                     conf.analysisConfig.put("Category","TRUE");
+                if(temp.equals("Sentiment") == true)
+                    conf.analysisConfig.put("Sentiment","TRUE");
 
             }
         }
