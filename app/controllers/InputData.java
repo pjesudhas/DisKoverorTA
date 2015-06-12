@@ -51,6 +51,26 @@ public class InputData extends Controller
         return ok(api.retrieveTextAnalyticsOutput(data));
     }
 
+    public static Result getJSON()
+    {
+        Form<DataContent>boundForm = productForm.bindFromRequest();
+        DataContent product = boundForm.get();
+
+        
+        RestInput restIp = new RestInput();
+        ApiManager api = new ApiManager();
+
+        product.rawInput = product.rawInput.replace("\n","");
+        product.rawInput = product.rawInput.replace("\r","");
+        restIp.inputtext = product.rawInput;
+        restIp.analysisSet.add("All");
+        restIp.analysis = "All";
+        restIp.apiMode = true;
+        restIp.loadData();
+
+        return ok(json.render(api.retrieveTextAnalyticsOutput(restIp)));
+    }
+
     public static Result getLegalTAOutput()
     {
         Form<LegalInput>boundForm = legalInput.bindFromRequest();

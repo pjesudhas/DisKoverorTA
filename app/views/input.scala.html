@@ -145,7 +145,8 @@
         <div class="large-8 columns">
           <div class="row full-width">
             <div class="large-10 columns">
-              @helper.form(action = routes.InputData.getTaggedOutput()) {
+              
+              @helper.form(action = routes.InputData.getJSON()) {
               @helper.textarea(productForm("rawInput"), '_label ->"")
                 
             </div>
@@ -174,7 +175,9 @@
             <input type="checkbox" id="lifeSciences"><span style="padding-left:7px; ">Life Sciences</span>
           </div>
           <div class="large-3 columns" style="padding-top:7px; margin-left:-50px;">
-            <input type="checkbox" id="viewJSON"><span style="padding-left:7px;">View Json Output</span>
+          
+            <input href="#" type="submit" class="button secondary radius" value="JSON Output" style="padding: 5px 20px; font-size:15px; font-weight:300; font-weight:lighter;"></input>
+            
           </div>
           <div class="large-3 columns" style="margin-left:70px;">
             <input href="#" type="submit" class="button secondary radius" value="Analyze Now" style="padding: 5px 20px; font-size:15px; font-weight:300; font-weight:lighter;"></input>
@@ -188,101 +191,5 @@
   </div>
   }
   
-<!--   
-     <div class="row" style="height:520px">
-     	
-     	<div class="col-lg-8" style="padding-left:15px">
-	
-			
-    		<h4>Test Drive Our System : </h4>
-    		
-    		<div style="border:0px solid;margin-left:2px">
-    		
-        	@helper.form(action = routes.InputData.getTaggedOutput()) {
-            <fieldset>
 
-                     <legend>DataContent (@productForm("name").valueOr("New"))</legend> 
-               	 @helper.textarea(productForm("rawInput"), '_label ->"")
-               	 
-               	
-               	 
-            	</fieldset>
-            	
-				
-           </div>
-		
-			<div class="row">
-				<div class="col-lg-4" style="padding-right:0px">
-					<input type="submit"  style="width:135px;height:30px" value="Process Data" title="Click here to process input"></input>
-				</div>
-				<div class="col-lg-8" style="padding-top:7px;padding-left:0px;text-align:left">
-					<input type="checkbox" checked>General</checkbox> &nbsp;&nbsp;
-        			<input type="checkbox">Life Science</checkbox>
-				</div>
-					
-			</div>
-		
-		
--->		   
-				
-			<!--
-			<div class="mybutton" title="Process input text">
-				<b>Process Data</b>
-			</div>
-			-->
-			
-          	<!--<input type="button" id="btnabout" class="btn primary" value="About Diskoveror" ></input>-->
-          	
-          	
-          	
-          	<!--  
-          	<a href="op1"> 
-          	<input type="submit" class="btn primary" value="  Practising  " ></input>
-			</a>
-			-->
-			
-			
-			
-			<!--}-->
-			
-		
-        
-        	
-        	
-        	
-        	
-        
-       	<!--</div>-->
-       
-       
-       <!--  
- 		<div class="col-lg-4" style="padding-left:25px">
- 		
-     		<br/><br/><br/>
-     		
-     		<div class="headingPara"><b>Domain</b></div>
-     		
-        	<p id="about"> 
-        	
-        		
-        	<br/><br/>
-        	</p>
-		</div>
-       -->
-       
-      <!--</div>-->
-      
-      
-      
-      
-  <!--  
-  </div>
-  <div id="dialog" title="About Diskoveror">
-  <p>
-  The DisKoveror Text analytics engine(DTAE) is a software product developed by Serendio for extracting information such as Sentiment, Text categories, named entities etc from unstructured text. DTAE is useful in extracting information from Twitter streams, product reviews, emails, webpages and any other source of unstructured information.
-            	Potential applications for DTAE includes but are not limited to Legal document analysis, Social media analysis, Insurance fraud detection, Bio entity detection, Movie popularity detection etc.
-  </p>
-	</div>
-
---> 
 }
