@@ -145,8 +145,7 @@
         <div class="large-8 columns">
           <div class="row full-width">
             <div class="large-10 columns">
-              
-              @helper.form(action = routes.InputData.getJSON()) {
+              @helper.form(action = routes.InputData.myAction()) {
               @helper.textarea(productForm("rawInput"), '_label ->"")
                 
             </div>
@@ -174,13 +173,13 @@
           <div class="large-3 columns" style="padding-top:7px; margin-left:-10px;">
             <input type="checkbox" id="lifeSciences"><span style="padding-left:7px; ">Life Sciences</span>
           </div>
-          <div class="large-3 columns" style="padding-top:7px; margin-left:-50px;">
+          <div class="large-3 columns" style="margin-left:70px;">
           
-            <input href="#" type="submit" class="button secondary radius" value="JSON Output" style="padding: 5px 20px; font-size:15px; font-weight:300; font-weight:lighter;"></input>
+            <button type="submit" class="button secondary radius" value="json" name="action" style="padding: 5px 20px; font-size:15px; font-weight:300; font-weight:lighter;">JSON Output</button>
             
           </div>
-          <div class="large-3 columns" style="margin-left:70px;">
-            <input href="#" type="submit" class="button secondary radius" value="Analyze Now" style="padding: 5px 20px; font-size:15px; font-weight:300; font-weight:lighter;"></input>
+          <div class="large-3 columns" style="margin-left:-50px;">
+            <button type="submit" class="button secondary radius" value="analyze" name="action" style="padding: 5px 20px; font-size:15px; font-weight:300; font-weight:lighter;">Analyze Now</button>
           </div>
           <div class="large-1 columns">
             <p></p>
